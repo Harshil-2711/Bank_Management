@@ -121,9 +121,9 @@ class Bank:
             print("fill the data to be changed or leave empty if no change")
 
             newdata={
-                "name": input("please enter new name or press enter: "),
-                "email": input("enter your new email or press enter: "),
-                "pin": input("enter your new pin or press enter: ")
+                "name": input("please enter new name or press enter"),
+                "email": input("enter your new email or press enter"),
+                "pin": input("enter your new pin or press enter")
             }
             if newdata["name"]=="":
                 newdata["name"] = userdata[0]['name']
@@ -151,29 +151,6 @@ class Bank:
 
             Bank.update()       
             print("details updated succesfully")  
-
-
-    def deleteacc(self):
-        acc=input("please enter your account no: ")
-        pin=int(input("please enter your pin: "))
-                
-        userdata=[i for i in Bank.data if i['accountNo.']==acc and i['pin']==pin]
-
-        if userdata==False:
-            print("sorry no such account exists")
-
-        else:
-            check=input("press Y to delete or press N")  
-            if check =='N' or check=='n':
-                print("bypassed")
-            else:
-                index=Bank.data.index(userdata[0])
-                Bank.data.pop(index)
-                print("account deleted succesfully")
-                Bank.update()
-
-        
-
         
 
 user=Bank()
